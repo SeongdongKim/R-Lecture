@@ -1,0 +1,57 @@
+---
+title: "ggplot / R markdown 연습문제"
+author: "Seongdong Kim"
+date: '2019 6 10 '
+output: html_document
+---
+```{r}
+library(ggplot2)
+library(gridExtra)
+mpg
+ggplot(mpg, aes(x=cty, y=hwy)) + geom_point(size=2, color='red')
+ggtitle('mpg 데이터 cty(도시연비)와 hwy(고속도로연비)의 산점도)
+```
+
+```{r}
+midwest
+  filter(poptotal <= 500000 && poptotal <= 10000)
+options(scipen = 10)
+ggplot(midwest, aes(x=poptotal, y=popasian)) + geom_point() + xlim(0,50000) + ylim(0,1000)
+```
+```{r}
+
+```
+```{r}
+ggplot(mpg, aes(x=class)) + geom_bar()
+```
+```{r}
+View(economics)
+ggplot(economics, aes(x=date, y=psavert)) + geom_line()
+```
+```{r}
+
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
